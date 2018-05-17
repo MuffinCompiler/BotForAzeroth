@@ -8,6 +8,11 @@ import traceback
 import datetime
 import subprocess
 
+# for a variable working directory and executing the bot from the services
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
+
 try:
     from discord.ext import commands
     import discord
