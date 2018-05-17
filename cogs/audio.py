@@ -1104,9 +1104,7 @@ class Audio:
                 log.debug("Voice client changed while trying to update bot's"
                           " song status")
                 return
-            print("active servers ?")
             if len(active_servers) == 1:
-                print("active servers 1")
                 server = active_servers[0].server
                 song = self._get_queue_nowplaying(server)
             if song:
