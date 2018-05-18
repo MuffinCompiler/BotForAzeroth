@@ -25,7 +25,7 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        affix_descs = json.load(open(os.path.join(script_dir, '/wowData/affixDescriptions.json'))
+        affix_descs = json.load(open(os.path.join(script_dir, '/wowData/affixDescriptions.json')))
 
         await self.bot.say("This weeks affixes:")
         for keystone in keystoneData["current_keystone_affixes"]:
@@ -38,7 +38,7 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        affix_descs = json.load(open('wow/affixDescriptions.json'))
+        affix_descs = json.load(open(os.path.join(script_dir, '/wowData/affixDescriptions.json')))
 
         await self.bot.say("Affixe diese Woche:")
         for keystone in keystoneData["current_keystone_affixes"]:
