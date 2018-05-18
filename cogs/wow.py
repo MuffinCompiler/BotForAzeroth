@@ -20,6 +20,7 @@ class WoW:
         await self.bot.say("WOW!")
 
     async def printAffixesFromJSON(self, data):
+        self.bot.say("This weeks affixes:")
         for keystone in data["current_keystone_affixes"]:
             await self.bot.say("Level " + keystone['starting_level'] + ": " + keystone['keystone_affix']['name']);
 
