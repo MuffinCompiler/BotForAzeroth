@@ -16,9 +16,9 @@ class WoW:
         self.bot = bot
 
     @commands.command()
-    async def wow(self):
+    async def github(self):
         #Your code will go here
-        await self.bot.say("WOW!")
+        await self.bot.say("Hier gehts zum Repo: https://github.com/MuffinCompiler/BotForAzeroth")
 
     @commands.command()
     async def affixes(self):
