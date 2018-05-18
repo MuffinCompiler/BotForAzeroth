@@ -20,17 +20,15 @@ class WoW:
         await self.bot.say("WOW!")
 
     def printAffixesFromJSON(self, data):
-        self.bot.say("This weeks affixes:")
-        for keystone in data["current_keystone_affixes"]:
-            self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'])
 
     @commands.command()
     async def affixes(self):
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        self.bot.say("This weeks affixes:")
-        self.printAffixesFromJSON(keystoneData)
+        await self.bot.say("This weeks affixes:")
+        for keystone in keystoneData["current_keystone_affixes"]:
+            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'])
 
 
     @commands.command()
@@ -38,7 +36,9 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        self.printAffixesFromJSON(keystoneData)
+        await self.bot.say("Affixe diese Woche:")
+        for keystone in keystoneData["current_keystone_affixes"]:
+            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'])
 
         
 
