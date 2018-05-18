@@ -19,8 +19,6 @@ class WoW:
         #Your code will go here
         await self.bot.say("WOW!")
 
-    def printAffixesFromJSON(self, data):
-
     @commands.command()
     async def affixes(self):
         # Prints current affixes
@@ -40,7 +38,6 @@ class WoW:
         for keystone in keystoneData["current_keystone_affixes"]:
             await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'])
 
-        
 
 
 def setup(bot):
