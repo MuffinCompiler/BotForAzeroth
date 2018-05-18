@@ -28,7 +28,7 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        printAffixesFromJSON(keystoneData)
+        self.printAffixesFromJSON(keystoneData)
         
 
 
@@ -37,7 +37,7 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        printAffixesFromJSON(keystoneData)
+        self.printAffixesFromJSON(keystoneData)
 
         
 
