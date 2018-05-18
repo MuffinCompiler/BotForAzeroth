@@ -19,8 +19,8 @@ class WoW:
         #Your code will go here
         await self.bot.say("WOW!")
 
-    def printAffixesFromJSON(self, data):
-        for keystone in data['current_keystone_affixes']
+    async def printAffixesFromJSON(self, data):
+        for keystone in data["current_keystone_affixes"]:
             await self.bot.say("Level " + keystone['starting_level'] + ": " + keystone['keystone_affix']['name']);
 
     @commands.command()
