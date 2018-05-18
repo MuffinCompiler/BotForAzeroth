@@ -29,8 +29,7 @@ class WoW:
 
         await self.bot.say("This weeks affixes:")
         for keystone in keystoneData["current_keystone_affixes"]:
-            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'])
-            await self.bot.say(affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_EN'])
+            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_EN'])
 
 
     @commands.command()
@@ -42,8 +41,7 @@ class WoW:
 
         await self.bot.say("Affixe diese Woche:")
         for keystone in keystoneData["current_keystone_affixes"]:
-            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'])
-            await self.bot.say(affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_DE'])
+            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_DE'])
 
 
 
