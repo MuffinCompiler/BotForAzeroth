@@ -7,7 +7,7 @@ import json #bNet API
 import urllib.request
 
 WOW_API_TOKEN = open(os.path.join(os.path.dirname(__file__), "../tokens/bNetAPI")).read()
-script_dir = os.path.dirname(__file__)
+AFFIX_DESC_FILE = open(os.path.join(os.path.dirname(__file__), "wowData/affixDescriptions.json"))
 
 class WoW:
     """Custom WoW Cog with basic commands"""
@@ -25,7 +25,7 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        affix_descs = json.load(open(os.path.join(script_dir, '/wowData/affixDescriptions.json')))
+        affix_descs = json.load(AFFIX_DESC_FILE)
 
         await self.bot.say("This weeks affixes:")
         for keystone in keystoneData["current_keystone_affixes"]:
@@ -38,7 +38,7 @@ class WoW:
         # Prints current affixes
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
-        affix_descs = json.load(open(os.path.join(script_dir, '/wowData/affixDescriptions.json')))
+        affix_descs = json.load(AFFIX_DESC_FILE)
 
         await self.bot.say("Affixe diese Woche:")
         for keystone in keystoneData["current_keystone_affixes"]:
