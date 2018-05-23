@@ -49,7 +49,7 @@ class WoW:
         # token price
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/token/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         tokenData = json.loads(url.read().decode())
-        goldTokenPrice = tokenData['price'] / 10000
+        goldTokenPrice = int(tokenData['price'] / 10000)
         strTokenPrice = "{:,}".format(goldTokenPrice).replace(",",".")
         await self.bot.say("Aktueller Token-Preis: " + strTokenPrice + "g")
 
