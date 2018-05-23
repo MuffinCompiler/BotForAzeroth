@@ -62,7 +62,7 @@ class WoW:
             resetDiff = 2
         else:
             resetDiff = 1
-        await self.bot.say("Wöchentlicher Reset: Mittwoch " + str(resetHr + resetDiff) + " Uhr (GMT+" + str(resetDiff) + ")";)
+        await self.bot.say("Wöchentlicher Reset: Mittwoch " + str(resetHr + resetDiff) + " Uhr (GMT+" + str(resetDiff) + ")");
 
 
 
