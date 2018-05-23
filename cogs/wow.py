@@ -17,17 +17,17 @@ class WoW:
 
     @commands.command()
     async def github(self):
-        #Your code will go here
+        """Link zum Github Repo"""
         await self.bot.say("Hier gehts zum Repo: https://github.com/MuffinCompiler/BotForAzeroth")
 
     @commands.command()
     async def logs(self):
-        #Your code will go here
-        await self.bot.say("Debug-Logs: http://muffincompiler.de/bfalog.php")
+        """Link zu den Bot Logs"""
+        await self.bot.say("Debug-Logs: http://muffincompiler.de/bfalog.php\nDebug-Logs-Dev: http://muffincompiler.de/bfalog_dev.php")
 
     @commands.command()
     async def affixes(self):
-        # Prints current affixes
+        """Prints current M+ affixes"""
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
         await self.bot.say("This weeks affixes:")
@@ -37,7 +37,7 @@ class WoW:
 
     @commands.command()
     async def affixesDE(self):
-        # Prints current affixes
+        """Gibt aktuelle M+ Affixes aus"""
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
         keystoneData = json.loads(url.read().decode())
         await self.bot.say("Affixe diese Woche:")
@@ -46,7 +46,7 @@ class WoW:
 
     @commands.command()
     async def token(self):
-        # token price
+        """Aktueller Token-Preis"""
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/token/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
         tokenData = json.loads(url.read().decode())
         goldTokenPrice = int(tokenData['price'] / 10000)
@@ -55,7 +55,7 @@ class WoW:
 
     @commands.command()
     async def reset(self):
-        # weekly reset time
+        """Wann ist wöchentlicher Reset?"""
         resetHr = 7 # reset at 7am UTC
         import time
         if time.localtime().tm_isdst:
