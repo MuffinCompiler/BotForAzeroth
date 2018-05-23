@@ -53,6 +53,17 @@ class WoW:
         strTokenPrice = "{:,}".format(goldTokenPrice).replace(",",".")
         await self.bot.say("Aktueller Token-Preis: " + strTokenPrice + "g")
 
+    @commands.command()
+    async def reset(self):
+        # weekly reset time
+        resetHr = 7 # reset at 7am UTC
+        import time
+        if (time.localtime().tm_isdst) 
+            resetDiff = 2
+        else
+            resetDiff = 1
+        await self.bot.say("Wöchentlicher Reset: Mittwoch " + str(resetHr + resetDiff) + " Uhr (GMT+" + str(resetDiff) + ")";)
+
 
 
 def setup(bot):
