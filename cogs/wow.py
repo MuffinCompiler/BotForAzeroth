@@ -58,9 +58,9 @@ class WoW:
         # weekly reset time
         resetHr = 7 # reset at 7am UTC
         import time
-        if (time.localtime().tm_isdst) 
+        if time.localtime().tm_isdst:
             resetDiff = 2
-        else
+        else:
             resetDiff = 1
         await self.bot.say("Wöchentlicher Reset: Mittwoch " + str(resetHr + resetDiff) + " Uhr (GMT+" + str(resetDiff) + ")";)
 
