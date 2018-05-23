@@ -64,7 +64,10 @@ class WoW:
             resetDiff = 1
         await self.bot.say("Wöchentlicher Reset: Mittwoch " + str(resetHr + resetDiff) + " Uhr (GMT+" + str(resetDiff) + ")");
 
-
+    @commands.command()
+    async def lw(self):
+        """Mir is langweilig..."""
+        await self.bot.say("Laaangweilig... http://muffincompiler.de/media/dalaran.gif")
 
 def setup(bot):
     bot.add_cog(WoW(bot))
