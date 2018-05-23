@@ -44,6 +44,15 @@ class WoW:
         for keystone in keystoneData["current_keystone_affixes"]:
             await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_DE'])
 
+    @commands.command()
+    async def token(self):
+        # token price
+        url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/token/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
+        tokenData = json.loads(url.read().decode())
+        goldTokenPrice = tokenData['price'] / 10000
+        strTokenPrice = "{:,}".format(goldTokenPrice).replace(",",".")
+        await self.bot.say("Aktueller Token-Preis: " + strTokenPrice + "g")
+
 
 
 def setup(bot):
