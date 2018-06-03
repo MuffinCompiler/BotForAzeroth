@@ -21,6 +21,11 @@ class WoW:
         await self.bot.say("Hier gehts zum Repo: https://github.com/MuffinCompiler/BotForAzeroth")
 
     @commands.command()
+    async def bot(self):
+        """Gibt nix wichtiges aus, ist nur vorhanden, weil manche Leute das eingeben :D """
+        await self.bot.say("Mit !help whispert der Bot eine Liste der Commands. Ganz unten sind die custom WoW commands.")
+
+    @commands.command()
     async def logs(self):
         """Link zu den Bot Logs"""
         await self.bot.say("Debug-Logs: http://muffincompiler.de/bfalog.php\nDebug-Logs-Dev: http://muffincompiler.de/bfalog_dev.php")
@@ -31,6 +36,14 @@ class WoW:
         await self.bot.say("This weeks affixes:")
         for keystone in keystoneData["current_keystone_affixes"]:
             await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_EN'])
+    
+    async def affix_de(self):
+        """Gibt aktuelle M+ Affixes aus"""
+        url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
+        keystoneData = json.loads(url.read().decode())
+        await self.bot.say("Affixe diese Woche:")
+        for keystone in keystoneData["current_keystone_affixes"]:
+            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_DE'])
 
     @commands.command()
     async def affixes(self):
@@ -39,16 +52,18 @@ class WoW:
     
     @commands.command()
     async def affix(self):
+        """Prints current M+ affixes"""
         await self.affix_en()
 
     @commands.command()
+    async def affixDE(self):
+        """Prints current M+ affixes"""
+        await self.affix_de()
+
+    @commands.command()
     async def affixesDE(self):
-        """Gibt aktuelle M+ Affixes aus"""
-        url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=de_DE&access_token=" + WOW_API_TOKEN)
-        keystoneData = json.loads(url.read().decode())
-        await self.bot.say("Affixe diese Woche:")
-        for keystone in keystoneData["current_keystone_affixes"]:
-            await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_DE'])
+        """Prints current M+ affixes"""
+        await self.affix_de()
 
     @commands.command()
     async def token(self):
