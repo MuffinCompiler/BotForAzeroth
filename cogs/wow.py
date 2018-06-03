@@ -26,10 +26,6 @@ class WoW:
         await self.bot.say("Debug-Logs: http://muffincompiler.de/bfalog.php\nDebug-Logs-Dev: http://muffincompiler.de/bfalog_dev.php")
 
     @commands.command()
-    async def affix(self):
-        affixes(self)
-
-    @commands.command()
     async def affixes(self):
         """Prints current M+ affixes"""
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
@@ -37,7 +33,10 @@ class WoW:
         await self.bot.say("This weeks affixes:")
         for keystone in keystoneData["current_keystone_affixes"]:
             await self.bot.say("Level " + str(keystone['starting_level']) + ": " + keystone['keystone_affix']['name'] + "\n" + affix_descs['affix_descriptions'][keystone['keystone_affix']['id'] - 1]['d_EN'])
-
+    
+    @commands.command()
+    async def affix(self):
+        affixes(self)
 
     @commands.command()
     async def affixesDE(self):
