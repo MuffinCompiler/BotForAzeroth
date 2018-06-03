@@ -21,11 +21,6 @@ class WoW:
         await self.bot.say("Hier gehts zum Repo: https://github.com/MuffinCompiler/BotForAzeroth")
 
     @commands.command()
-    async def bot(self):
-        """Gibt nix wichtiges aus, ist nur vorhanden, weil manche Leute das eingeben :D """
-        await self.bot.say("Mit !help whispert der Bot eine Liste der Commands. Ganz unten sind die custom WoW commands.")
-
-    @commands.command()
     async def logs(self):
         """Link zu den Bot Logs"""
         await self.bot.say("Debug-Logs: http://muffincompiler.de/bfalog.php\nDebug-Logs-Dev: http://muffincompiler.de/bfalog_dev.php")
