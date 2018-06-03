@@ -36,7 +36,7 @@ class WoW:
     
     @commands.command()
     async def affix(self):
-        affixes(self)
+        self.affixes()
 
     @commands.command()
     async def affixesDE(self):
