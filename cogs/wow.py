@@ -26,6 +26,10 @@ class WoW:
         await self.bot.say("Debug-Logs: http://muffincompiler.de/bfalog.php\nDebug-Logs-Dev: http://muffincompiler.de/bfalog_dev.php")
 
     @commands.command()
+    async def affix(self):
+        affixes(self)
+
+    @commands.command()
     async def affixes(self):
         """Prints current M+ affixes"""
         url = urllib.request.urlopen("https://eu.api.battle.net/data/wow/mythic-challenge-mode/?namespace=dynamic-eu&locale=en_GB&access_token=" + WOW_API_TOKEN)
