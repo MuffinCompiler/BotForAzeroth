@@ -35,11 +35,11 @@ class WoW:
     @commands.command()
     async def affixes(self):
         """Prints current M+ affixes"""
-        self.affix_en()
+        await self.affix_en()
     
     @commands.command()
     async def affix(self):
-        self.affix_en()
+        await self.affix_en()
 
     @commands.command()
     async def affixesDE(self):
