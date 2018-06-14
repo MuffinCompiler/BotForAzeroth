@@ -85,5 +85,10 @@ class WoW:
         """Mir is langweilig..."""
         await self.bot.say("Laaangweilig... http://muffincompiler.de/media/dalaran.gif")
 
+    @commands.command()
+    async def raidguide(self):
+        """Was im Raid zu tun ist"""
+        await self.bot.say("http://muffincompiler.de/media/fire.png")
+
 def setup(bot):
     bot.add_cog(WoW(bot))
